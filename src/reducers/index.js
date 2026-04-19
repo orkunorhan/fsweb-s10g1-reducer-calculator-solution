@@ -1,4 +1,4 @@
-import { useState } from "react";
+//import { useState } from "react";
 import {
   ADD_ONE,
   APPLY_NUMBER,
@@ -9,7 +9,7 @@ import {
   MEMORY_PLUS,
   DIGIT,
   CALCULATE,
-  applyNumber,
+  //applyNumber,
 } from "./../actions";
 
 export const initialState = {
@@ -97,7 +97,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         screen:
-          state.screen == 0
+          state.screen === 0
             ? action.payload
             : typeDigit(state.screen, action.payload),
       };
@@ -107,7 +107,7 @@ const reducer = (state = initialState, action) => {
       const calculation = calculateResult(
         state.screen,
         state.temp,
-        state.operation
+        state.operation,
       );
 
       return { ...state, total: calculation, screen: calculation, temp: 0 };
